@@ -29,4 +29,8 @@ To run the application, follow these steps:
 
 That's it! You should now be able to access the "May the Force" application at http://localhost:8000.
 
+Then click on "Browse files" (you can select multiple) and in the list you can click on songs/videos to skip.
+
+<img width="1257" alt="Screenshot 2024-03-09 at 20 13 35" src="https://github.com/darrenlavery91/May_the_force_compose/assets/148440040/7d0e89e1-a965-4f24-9681-275b144732c9">
+
 <img width="1253" alt="Screenshot 2024-03-09 at 19 52 33" src="https://github.com/darrenlavery91/May_the_force_compose/assets/148440040/36eb4e70-e8e3-447d-8bc2-ccb6e8fa8704">
