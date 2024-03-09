@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-image: url('/static/927465.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #video-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    #playlist {
+      text-align: left;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    #playlist li {
+      cursor: pointer;
+    }
+
+    #audio-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="video-container">
+  <label for="fileInput">Choose MP4 files:   </label>
+  <input type="file" id="fileInput" accept="video/mp4" multiple>
+
+  <br>
+
+  <video id="video" controls>
+    <source id="videoSource" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+</div>
+
+<div id="playlist"></div>
+
+<a id="audio-link" href="/">Go to MP3 Player</a>
+
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const video = document.getElementById('video');
+  const videoSource = document.getElementById('videoSource');
+  const playlist = document.getElementById('playlist');
+
+  fileInput.addEventListener('change', (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      playlist.innerHTML = ''; // Clear existing playlist
+
+      for (const file of files) {
+        const listItem = document.createElement('li');
+        listItem.textContent = file.name;
+        listItem.addEventListener('click', () => playVideo(file));
+        playlist.appendChild(listItem);
+      }
+
+      // Play the first video in the playlist
+      playVideo(files[0]);
+    }
+  });
+
+  function playVideo(file) {
+    const objectURL = URL.createObjectURL(file);
+    videoSource.src = objectURL;
+    video.load();
+    video.play();
+  }
+
+  video.addEventListener('ended', () => {
+    // Play the next video in the playlist
+    const nextVideo = playlist.querySelector('.active').nextElementSibling;
+    if (nextVideo) {
+      nextVideo.click();
+    }
+  });
+</script>
+
+</body>
+</html>
+
