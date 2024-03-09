@@ -28,4 +28,5 @@ To run the application, follow these steps:
    ```
 
 That's it! You should now be able to access the "May the Force" application at http://localhost:8000.
-```
+
+<img width="1253" alt="Screenshot 2024-03-09 at 19 52 33" src="https://github.com/darrenlavery91/May_the_force_compose/assets/148440040/36eb4e70-e8e3-447d-8bc2-ccb6e8fa8704">
